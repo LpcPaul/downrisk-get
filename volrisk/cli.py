@@ -181,7 +181,8 @@ def rank(
     ranker.rank_and_export(
         results=results,
         output_path=output,
-        format=format
+        format=format,
+        sector_metrics=sector_metrics  # 传递行业指标用于详细报告
     )
 
 

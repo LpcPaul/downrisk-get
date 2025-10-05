@@ -223,7 +223,8 @@ class Ranker:
         self,
         results: List[CompanyResult],
         output_path: str,
-        format: str = "xlsx"
+        format: str = "xlsx",
+        sector_metrics: Dict[str, SectorMetrics] = None
     ):
         """
         排序并导出结果
@@ -232,6 +233,7 @@ class Ranker:
             results: 公司结果列表
             output_path: 输出文件路径
             format: 输出格式（xlsx, csv, json）
+            sector_metrics: 行业指标字典（用于详细报告）
         """
         if not results:
             print("警告: 没有结果可导出")
@@ -250,7 +252,13 @@ class Ranker:
         output_path = Path(output_path)
 
         if format == "xlsx":
-            df.to_excel(output_path, index=False, engine='openpyxl')
+            # 生成详细的Excel报告
+            self._export_detailed_excel(
+                sorted_results,
+                df,
+                output_path,
+                sector_metrics
+            )
             print(f"\n✓ 结果已导出到: {output_path}")
         elif format == "csv":
             df.to_csv(output_path, index=False, encoding='utf-8-sig')
@@ -271,3 +279,174 @@ class Ranker:
         print("=" * 80)
 
         return df
+
+    def _export_detailed_excel(
+        self,
+        sorted_results: List[CompanyResult],
+        df: pd.DataFrame,
+        output_path: Path,
+        sector_metrics: Dict[str, SectorMetrics] = None
+    ):
+        """
+        导出详细的Excel报告（多sheet）
+
+        Args:
+            sorted_results: 排序后的结果列表
+            df: 基础DataFrame
+            output_path: 输出路径
+            sector_metrics: 行业指标字典
+        """
+        with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
+            # Sheet 1: 排名汇总
+            df.to_excel(writer, sheet_name='排名汇总', index=False)
+
+            # Sheet 2: 详细计算过程
+            self._create_calculation_sheet(writer, sorted_results)
+
+            # Sheet 3: 行业风险数据
+            if sector_metrics:
+                self._create_sector_sheet(writer, sector_metrics)
+
+            # Sheet 4: Scheme C分解
+            self._create_risk_breakdown_sheet(writer, sorted_results)
+
+    def _create_calculation_sheet(
+        self,
+        writer: pd.ExcelWriter,
+        results: List[CompanyResult]
+    ):
+        """创建详细计算过程sheet"""
+        calc_data = []
+
+        for i, result in enumerate(results, 1):
+            # 基础信息
+            row = {
+                '排名': i,
+                '公司名称': result.name,
+                '行业代理': result.sector_info,
+            }
+
+            # 行业风险数据（真实数据）
+            row['σ下行(行业)'] = f"{result.sigma_down:.6f}"
+            row['σ总波动(行业)'] = f"{result.sigma_total:.6f}"
+            row['MDD(行业)'] = f"{abs(result.mdd):.6f}"
+
+            # 个股参数
+            if result.risk_details['mode'] == 'SchemeC':
+                beta = result.risk_details['params'].get('beta', 1.0)
+                frag = result.risk_details['params'].get('frag', 0.0)
+                row['β系数'] = f"{beta:.4f}"
+                row['脆弱度(%)'] = f"{frag:.2f}"
+
+                # Scheme C三项分解
+                w_down = result.risk_details.get('weights', {}).get('w_down', 0.6)
+                w_beta = result.risk_details.get('weights', {}).get('w_beta', 0.3)
+                w_frag = result.risk_details.get('weights', {}).get('w_frag', 0.1)
+
+                component_down = w_down * result.sigma_down
+                component_beta = w_beta * (beta * result.sigma_total)
+                component_frag = w_frag * (frag / 100.0)
+
+                row['下行项(60%)'] = f"{component_down:.6f}"
+                row['β项(30%)'] = f"{component_beta:.6f}"
+                row['脆弱项(10%)'] = f"{component_frag:.6f}"
+                row['损失风险(合计)'] = f"{result.loss_risk:.6f}"
+
+                # 验证计算
+                calc_sum = component_down + component_beta + component_frag
+                row['计算验证'] = f"{calc_sum:.6f}"
+                row['误差'] = f"{abs(calc_sum - result.loss_risk):.8f}"
+
+            # 期望收益
+            row['ER原始'] = f"{result.er_raw:.6f}"
+            row['执行概率'] = f"{result.er_details.get('execution_prob', 1.0):.4f}"
+            row['ER执行后'] = f"{result.er:.6f}"
+
+            # 值博率
+            row['值博率'] = f"{result.value_to_risk:.6f}"
+            row['值博率验证'] = f"{result.er / result.loss_risk:.6f}"
+
+            calc_data.append(row)
+
+        df_calc = pd.DataFrame(calc_data)
+        df_calc.to_excel(writer, sheet_name='详细计算', index=False)
+
+    def _create_sector_sheet(
+        self,
+        writer: pd.ExcelWriter,
+        sector_metrics: Dict[str, SectorMetrics]
+    ):
+        """创建行业风险数据sheet"""
+        sector_data = []
+
+        for sector_name, metrics in sector_metrics.items():
+            row = {
+                '行业代码': sector_name,
+                'ETF代码': ','.join(metrics.tickers),
+                'σ下行(年化)': f"{metrics.sigma_down:.6f}",
+                'σ总波动(年化)': f"{metrics.sigma_total:.6f}",
+                'MDD': f"{abs(metrics.mdd):.6f}",
+                '数据点数': metrics.sample_days,
+                '交易日数': metrics.trading_days,
+                '起始日期': metrics.start_date or 'N/A',
+                '结束日期': metrics.end_date or 'N/A',
+            }
+            sector_data.append(row)
+
+        # 按σ下行排序
+        df_sector = pd.DataFrame(sector_data)
+        df_sector = df_sector.sort_values('σ下行(年化)')
+        df_sector.insert(0, '风险排名', range(1, len(df_sector) + 1))
+        df_sector.to_excel(writer, sheet_name='行业风险数据', index=False)
+
+    def _create_risk_breakdown_sheet(
+        self,
+        writer: pd.ExcelWriter,
+        results: List[CompanyResult]
+    ):
+        """创建Scheme C风险分解sheet"""
+        breakdown_data = []
+
+        for i, result in enumerate(results, 1):
+            if result.risk_details['mode'] != 'SchemeC':
+                continue
+
+            beta = result.risk_details['params'].get('beta', 1.0)
+            frag = result.risk_details['params'].get('frag', 0.0)
+
+            # 权重
+            w_down = result.risk_details.get('weights', {}).get('w_down', 0.6)
+            w_beta = result.risk_details.get('weights', {}).get('w_beta', 0.3)
+            w_frag = result.risk_details.get('weights', {}).get('w_frag', 0.1)
+
+            # 计算各项
+            component_down = w_down * result.sigma_down
+            component_beta = w_beta * (beta * result.sigma_total)
+            component_frag = w_frag * (frag / 100.0)
+
+            row = {
+                '排名': i,
+                '公司': result.name,
+                '--- 输入参数 ---': '',
+                'σ下行': f"{result.sigma_down:.6f}",
+                'σ总波动': f"{result.sigma_total:.6f}",
+                'β': f"{beta:.4f}",
+                'Frag(%)': f"{frag:.2f}",
+                '--- 权重配置 ---': '',
+                'W下行': f"{w_down:.2f}",
+                'Wβ': f"{w_beta:.2f}",
+                'W脆弱': f"{w_frag:.2f}",
+                '--- Scheme C计算 ---': '',
+                '①下行项': f"{w_down:.2f} × {result.sigma_down:.6f} = {component_down:.6f}",
+                '②β项': f"{w_beta:.2f} × ({beta:.4f} × {result.sigma_total:.6f}) = {component_beta:.6f}",
+                '③脆弱项': f"{w_frag:.2f} × {frag/100:.6f} = {component_frag:.6f}",
+                '总风险': f"{component_down:.6f} + {component_beta:.6f} + {component_frag:.6f} = {result.loss_risk:.6f}",
+                '--- 值博率 ---': '',
+                'ER': f"{result.er:.6f}",
+                '损失风险': f"{result.loss_risk:.6f}",
+                '值博率': f"{result.er:.6f} ÷ {result.loss_risk:.6f} = {result.value_to_risk:.6f}",
+            }
+            breakdown_data.append(row)
+
+        df_breakdown = pd.DataFrame(breakdown_data)
+        df_breakdown.to_excel(writer, sheet_name='Scheme C分解', index=False)
