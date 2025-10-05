@@ -1,0 +1,121 @@
+companies:
+  # 澜起科技 - 半导体
+  - name: "澜起科技"
+    sector: "SEMI"
+    model:
+      type: "PE"
+      current_multiple: 88.0
+      target_multiple: 45.0
+      growth_12m: 0.30
+      dividend_yield: 0.005
+      buyback_yield: 0.010
+      execution_prob: 0.90
+    risk:
+      mode: "SchemeC"
+      beta: 1.1  # 半导体行业敏感度略高
+      frag: 2.5  # 脆弱度：高估值+行业周期
+
+  # 阿里巴巴 - 中概互联网
+  - name: "阿里巴巴"
+    sector: "INTERNET"
+    expected_return: 0.40  # 直接指定40%期望收益
+    risk:
+      mode: "SchemeC"
+      beta: 1.05  # 互联网龙头，波动略高于行业
+      frag: 2.0  # 脆弱度：监管风险
+
+  # 紫金矿业 - 混合行业（60%有色 + 40%黄金）
+  - name: "紫金矿业"
+    sector_mix:
+      NONFER: 0.6
+      GOLD: 0.4
+    model:
+      type: "EV/EBITDA"
+      current_multiple: 8.5
+      target_multiple: 10.0
+      growth_12m: 0.15
+      dividend_yield: 0.03
+      buyback_yield: 0.0
+      execution_prob: 0.85
+    risk:
+      mode: "SchemeC"
+      beta: 0.95  # 混合配置，波动略低
+      frag: 1.5  # 脆弱度：商品价格波动
+
+  # 中国巨石 - 有色金属
+  - name: "中国巨石"
+    sector: "NONFER"
+    expected_return: 0.25
+    risk:
+      mode: "SchemeC"
+      beta: 1.20  # 周期股，高敏感度
+      frag: 3.0  # 脆弱度：周期性强+需求波动
+
+  # 锦波生物 - 医疗器械
+  - name: "锦波生物"
+    sector: "MEDDEV"
+    model:
+      type: "EV/Sales"
+      current_multiple: 12.0
+      target_multiple: 15.0
+      growth_12m: 0.50
+      dividend_yield: 0.0
+      buyback_yield: 0.0
+      execution_prob: 0.75
+    risk:
+      mode: "SchemeC"
+      beta: 1.0  # 医疗器械，中性波动
+      frag: 4.0  # 脆弱度：商业化不确定性高
+
+  # 晶泰控股 - 恒生生物科技
+  - name: "晶泰控股"
+    sector: "BIOHK"
+    expected_return: 0.60  # AI+生科高预期
+    risk:
+      mode: "SchemeC"
+      beta: 1.3  # 生科板块高波动
+      frag: 5.0  # 脆弱度：研发风险+烧钱
+
+  # 中宠股份 - 主要消费
+  - name: "中宠股份"
+    sector: "CONSUMER"
+    model:
+      type: "PE"
+      current_multiple: 35.0
+      target_multiple: 28.0  # 估值回归
+      growth_12m: 0.20
+      dividend_yield: 0.01
+      buyback_yield: 0.0
+      execution_prob: 0.80
+    risk:
+      mode: "SchemeC"
+      beta: 1.0  # 消费品，中性
+      frag: 2.0  # 脆弱度：竞争加剧
+
+# ============================================================================
+# Scheme C 风险模型说明
+# ============================================================================
+# LossRisk = w_down × σ_down + w_beta × (β × σ_total) + w_frag × Frag
+#
+# 默认权重：w_down=0.6, w_beta=0.3, w_frag=0.1
+#
+# 参数说明：
+# - beta: 个股相对行业的敏感度系数
+#   * β=1.0: 与行业同步波动
+#   * β>1.0: 比行业波动更剧烈（如周期股、成长股）
+#   * β<1.0: 比行业波动更平稳（如防御股、混合配置）
+#
+# - frag: 脆弱度加点（单位：百分点，如2.5表示2.5%）
+#   * 0.5-1.5: 低脆弱度（龙头、稳健）
+#   * 1.5-3.0: 中等脆弱度（一般公司）
+#   * 3.0-5.0: 高脆弱度（高风险特征）
+#   * 5.0+: 极高脆弱度（重大结构性风险）
+#
+#   脆弱度评分因素：
+#   - 财务杠杆（净负债率）
+#   - 客户集中度（单一客户占比）
+#   - 再融资压力
+#   - 监管/政策不确定性
+#   - 地缘/汇率风险
+#   - 技术/商业化风险
+# ============================================================================

@@ -1,0 +1,35 @@
+sectors:
+  # 半导体
+  SEMI:
+    tickers: ["512480.SS"]  # 半导体50ETF
+    weights: [1.0]
+
+  # 中概互联网
+  INTERNET:
+    tickers: ["513050.SS"]  # 中概互联网ETF
+    weights: [1.0]
+
+  # 有色金属
+  NONFER:
+    tickers: ["512400.SS"]  # 有色金属ETF
+    weights: [1.0]
+
+  # 医疗器械
+  MEDDEV:
+    tickers: ["159898.SZ"]  # 医疗器械ETF
+    weights: [1.0]
+
+  # 恒生生物科技
+  BIOHK:
+    tickers: ["159892.SZ"]  # 恒生生物科技ETF
+    weights: [1.0]
+
+  # 主要消费
+  CONSUMER:
+    tickers: ["159928.SZ"]  # 消费ETF
+    weights: [1.0]
+
+  # 黄金
+  GOLD:
+    tickers: ["518850.SS"]  # 黄金ETF
+    weights: [1.0]

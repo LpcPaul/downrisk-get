@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "downrisk-get"
+version = "0.1.0"
+description = "股票值博率分析工具 - 基于下行波动率的损失风险评估"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "yfinance>=0.2.32",
+    "pandas>=2.1.0",
+    "numpy>=1.24.0",
+    "pydantic>=2.0.0",
+    "typer>=0.9.0",
+    "PyYAML>=6.0.0",
+    "openpyxl>=3.1.0",
+    "python-dateutil>=2.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+volrisk = "volrisk.cli:app"
+
+[tool.setuptools]
+packages = ["volrisk"]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

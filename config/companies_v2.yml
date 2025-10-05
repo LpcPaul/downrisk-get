@@ -1,0 +1,137 @@
+companies:
+  # 1. 建滔积层板 - CCL板块领军
+  - name: "建滔积层板"
+    sector: "NONFER"  # 材料链，用有色金属风险代理
+    expected_return: 0.30  # 30% - 高端化+涨价执行
+    risk:
+      mode: "SchemeC"
+      beta: 1.05  # 材料周期，略高于行业
+      frag: 2.0   # 脆弱度：需求波动
+
+  # 2. 澜起科技 - 半导体内存接口
+  - name: "澜起科技"
+    sector: "SEMI"
+    expected_return: 0.35  # 35% - DDR5放量+份额提升
+    risk:
+      mode: "SchemeC"
+      beta: 1.15  # 半导体周期股，高敏感
+      frag: 2.5   # 脆弱度：行业周期+客户集中
+
+  # 3. 中国巨石 - 玻纤龙头
+  - name: "中国巨石"
+    sector: "NONFER"
+    expected_return: 0.24  # 24% - 电子布复价+结构提升
+    risk:
+      mode: "SchemeC"
+      beta: 1.20  # 周期股，高β
+      frag: 3.0   # 脆弱度：周期性强
+
+  # 4. 阿里巴巴 - 中概互联网
+  - name: "阿里巴巴"
+    sector: "INTERNET"
+    expected_return: 0.25  # 25% - 云计算+电商稳健增长
+    risk:
+      mode: "SchemeC"
+      beta: 1.05  # 龙头，波动略高于行业
+      frag: 2.0   # 脆弱度：监管风险
+
+  # 5. 晶泰控股 - AI+生科
+  - name: "晶泰控股"
+    sector: "BIOHK"
+    expected_return: 0.30  # 30% - AI制药+商业化
+    risk:
+      mode: "SchemeC"
+      beta: 1.30  # 生科高波动
+      frag: 5.0   # 脆弱度：研发风险+烧钱
+
+  # 6. 生益科技 - CCL材料
+  - name: "生益科技"
+    sector: "SEMI"  # 当前用半导体风险（可选改为NONFER）
+    expected_return: 0.28  # 28% - 高频材料+AI服务器
+    risk:
+      mode: "SchemeC"
+      beta: 1.10  # 电子材料
+      frag: 2.5   # 脆弱度：下游需求
+
+  # 7. 紫金矿业 - 资源综合
+  - name: "紫金矿业"
+    sector_mix:
+      NONFER: 0.6  # 60%有色
+      GOLD: 0.4    # 40%黄金
+    expected_return: 0.18  # 18% - 资源价格温和+产能释放
+    risk:
+      mode: "SchemeC"
+      beta: 0.95  # 混合配置，低敏感
+      frag: 1.5   # 脆弱度：商品价格波动
+
+  # 8. 金诚信 - 矿服
+  - name: "金诚信"
+    sector: "NONFER"
+    expected_return: 0.22  # 22% - 矿服需求+海外扩张
+    risk:
+      mode: "SchemeC"
+      beta: 1.15  # 周期股
+      frag: 3.0   # 脆弱度：下游资本开支
+
+  # 9. 中宠股份 - 宠物食品
+  - name: "中宠股份"
+    sector: "CONSUMER"
+    expected_return: 0.15  # 15% - 消费承压，增长放缓
+    risk:
+      mode: "SchemeC"
+      beta: 1.00  # 消费品，中性
+      frag: 2.0   # 脆弱度：竞争加剧
+
+  # 10. 中材科技 - 新材料
+  - name: "中材科技"
+    sector: "NONFER"  # 材料链
+    expected_return: 0.15  # 15% - 风电叶片+隔膜
+    risk:
+      mode: "SchemeC"
+      beta: 1.05  # 材料周期
+      frag: 2.5   # 脆弱度：下游需求
+
+  # 11. 长电科技 - 封测
+  - name: "长电科技"
+    sector: "SEMI"
+    expected_return: 0.20  # 20% - 先进封装+份额提升
+    risk:
+      mode: "SchemeC"
+      beta: 1.15  # 半导体周期
+      frag: 2.5   # 脆弱度：资本开支
+
+  # 12. 江西铜业 - 铜冶炼
+  - name: "江西铜业"
+    sector: "NONFER"
+    expected_return: 0.15  # 15% - 铜价温和+加工费承压
+    risk:
+      mode: "SchemeC"
+      beta: 1.20  # 周期股高β
+      frag: 3.0   # 脆弱度：商品价格+加工费
+
+  # 13. 锦波生物 - 医美材料
+  - name: "锦波生物"
+    sector: "MEDDEV"
+    expected_return: 0.12  # 12% - 商业化不确定性（保守）
+    risk:
+      mode: "SchemeC"
+      beta: 1.00  # 医疗器械，中性
+      frag: 4.0   # 脆弱度：商业化风险高
+
+# ============================================================================
+# v2.0 收益框架说明
+# ============================================================================
+#
+# 期望收益基于"量×价×结构×成本→盈利增长×执行概率"的中性场景（Base）
+#
+# 调整原则：
+# 1. 高端化+涨价执行力强 → 建滔30%、澜起35%
+# 2. 结构提升+周期复苏 → 巨石24%、生益28%、晶泰30%
+# 3. 稳健增长 → 阿里25%、金诚信22%、长电20%
+# 4. 温和增长 → 紫金18%
+# 5. 承压/不确定性 → 中宠15%、中材15%、江西铜15%、锦波12%
+#
+# 可选调整：
+# - 生益科技：如改用NONFER风险，值博率将从1.07升至约1.35
+# - 所有收益可根据最新催化调整（建议设置Bear/Base/Bull三档）
+# ============================================================================
