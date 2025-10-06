@@ -1,0 +1,445 @@
+# 14家公司综合分析配置 V6
+# 分析框架: 三维深度分析 (财报30% + 行业40% + 个股30%)
+# 数据来源: Yahoo Finance API实时估值数据
+# 生成时间: 2025-10-06
+
+companies:
+  # 排名1: 光迅科技 - 期望收益98%
+  - name: "光迅科技"
+    sector: "TMT"  # 光模块
+    expected_return: 0.98
+    risk:
+      mode: "SchemeC"
+      beta: 0.338
+      frag: 2.5
+    analysis:
+      dimension1_financials:
+        pe_trailing: 63.43
+        pe_forward: 54.15
+        earnings_growth: 0.773  # +77.3%
+        revenue_growth: 0.661   # +66.1%
+        roe: 0.09037
+        质量评估: "优秀-2025Q1营收+72%利润+95%"
+      dimension2_industry:
+        industry: "光模块"
+        景气度: "超级景气期"
+        系数: 1.5
+        驱动因素: "800G量产+1.6T商用+AI数据中心需求年增50%"
+      dimension3_catalyst:
+        系数: 1.3
+        催化因素: "800G订单YoY+150%+绑定阿里字节华为+CPO硅光技术领先"
+      valuation:
+        peg: 0.82  # 63.43/77.3
+        判断: "合理"
+        调整: 0.00
+      calculation: "50%×1.5×1.3+0% = 98%"
+      推荐级别: "强烈推荐"
+
+  # 排名2: 澜起科技 - 期望收益78%
+  - name: "澜起科技"
+    sector: "SEMI"  # DDR5芯片
+    expected_return: 0.78
+    risk:
+      mode: "SchemeC"
+      beta: 0.866
+      frag: 2.5
+    analysis:
+      dimension1_financials:
+        pe_trailing: 88.46
+        pe_forward: 83.23
+        earnings_growth: 0.765  # +76.5%
+        revenue_growth: 0.521   # +52.1%
+        roe: 0.16733
+        质量评估: "优秀-DDR5芯片放量驱动高增长"
+      dimension2_industry:
+        industry: "DDR5内存芯片"
+        景气度: "超级景气期"
+        系数: 1.5
+        驱动因素: "2025年服务器DDR5渗透率75%+AI服务器内存2TB+"
+      dimension3_catalyst:
+        系数: 1.2
+        催化因素: "全球DDR5份额36.8%第一+绑定三星美光SK海力士+2025H1订单+60%"
+      valuation:
+        peg: 1.16  # 88.46/76.5
+        判断: "合理偏高"
+        调整: -0.03
+      calculation: "45%×1.5×1.2-3% = 78%"
+      推荐级别: "强烈推荐"
+
+  # 排名3: 生益科技 - 期望收益74%
+  - name: "生益科技"
+    sector: "TMT"  # CCL覆铜板
+    expected_return: 0.74
+    risk:
+      mode: "SchemeC"
+      beta: 0.752
+      frag: 2.8
+    analysis:
+      dimension1_financials:
+        pe_trailing: 58.09
+        pe_forward: 54.57
+        earnings_growth: 0.589  # +58.9%
+        revenue_growth: 0.358   # +35.8%
+        roe: 0.15389
+        质量评估: "优秀-全球CCL份额14%第二"
+      dimension2_industry:
+        industry: "覆铜板CCL"
+        景气度: "超级景气期"
+        系数: 1.5
+        驱动因素: "AI服务器CCL供不应求至2027+高速CCL价格+15-20%"
+      dimension3_catalyst:
+        系数: 1.3
+        催化因素: "黄石三期2025Q3投产产能+30%+M8超高速CCL量产单价+40%+AI服务器占比35%"
+      valuation:
+        peg: 0.99  # 58.09/58.9
+        判断: "合理"
+        调整: 0.00
+      calculation: "38%×1.5×1.3+0% = 74%"
+      推荐级别: "强烈推荐"
+
+  # 排名4: ASMPT - 期望收益68%
+  - name: "ASMPT"
+    sector: "SEMI"  # 半导体封装设备
+    expected_return: 0.68
+    risk:
+      mode: "SchemeC"
+      beta: 1.037
+      frag: 3.5
+    analysis:
+      dimension1_financials:
+        pe_trailing: 142.20  # 2024亏损导致极高
+        pe_forward: 20.41    # 前瞻PE正常
+        earnings_growth: -0.061  # 2024利润-93%
+        revenue_growth: 0.018
+        roe: 0.01533
+        质量评估: "周期拐点-2025H1营收+20%利润转正在即"
+      dimension2_industry:
+        industry: "半导体封装设备-先进封装"
+        景气度: "超级景气期"
+        系数: 1.5
+        驱动因素: "HBM3/HBM4量产+台积电CoWoS产能翻倍+先进封装设备需求年增40%"
+      dimension3_catalyst:
+        系数: 1.3
+        催化因素: "TCB订单+50%+绑定台积电三星英特尔+先进封装占比39%+盈利拐点"
+      valuation:
+        peg: null  # 使用forward PE评估
+        判断: "合理(考虑周期拐点)"
+        调整: 0.00
+      calculation: "35%×1.5×1.3+0% = 68%"
+      推荐级别: "谨慎推荐(关注SMT业务拖累)"
+
+  # 排名5: 建滔积层板 - 期望收益58%
+  - name: "建滔积层板"
+    sector: "TMT"  # CCL覆铜板
+    expected_return: 0.58
+    risk:
+      mode: "SchemeC"
+      beta: 0.565
+      frag: 2.5
+    analysis:
+      dimension1_financials:
+        pe_trailing: 25.37
+        pe_forward: 14.80
+        earnings_growth: 0.283  # +28.3%
+        revenue_growth: 0.110   # +11.0%
+        roe: 0.10152
+        质量评估: "良好-全球CCL份额17%第一"
+      dimension2_industry:
+        industry: "覆铜板CCL"
+        景气度: "超级景气期"
+        系数: 1.5
+        驱动因素: "同生益科技-AI服务器CCL超级周期"
+      dimension3_catalyst:
+        系数: 1.2
+        催化因素: "全球最大CCL产能+垂直一体化成本最低+份额目标18%"
+      valuation:
+        peg: 0.90  # 25.37/28.3
+        判断: "合理"
+        调整: 0.00
+      calculation: "32%×1.5×1.2+0% = 58%"
+      推荐级别: "推荐"
+
+  # 排名6: 川恒股份 - 期望收益51%
+  - name: "川恒股份"
+    sector: "CHEM"  # 磷化工
+    expected_return: 0.51
+    risk:
+      mode: "SchemeC"
+      beta: 0.530
+      frag: 2.8
+    analysis:
+      dimension1_financials:
+        pe_trailing: 14.41
+        pe_forward: 12.56
+        earnings_growth: 0.565  # +56.5%
+        revenue_growth: 0.296   # +29.6%
+        roe: 0.16917999
+        质量评估: "优秀-磷矿储量1.6亿吨"
+      dimension2_industry:
+        industry: "磷化工-磷酸铁LFP电池"
+        景气度: "景气期"
+        系数: 1.1
+        驱动因素: "LFP电池渗透率45%+储能电池LFP占比95%+磷酸铁价格企稳"
+      dimension3_catalyst:
+        系数: 1.2
+        催化因素: "磷矿自供率80%+产能30万吨→50万吨+绑定宁德时代比亚迪"
+      valuation:
+        peg: 0.26  # 14.41/56.5
+        判断: "严重低估"
+        调整: 0.05
+      calculation: "35%×1.1×1.2+5% = 51%"
+      推荐级别: "推荐"
+
+  # 排名7: 紫金矿业 - 期望收益48%
+  - name: "紫金矿业"
+    sector: "GOLD"  # 黄金开采
+    expected_return: 0.48
+    risk:
+      mode: "SchemeC"
+      beta: 1.457
+      frag: 2.0
+    analysis:
+      dimension1_financials:
+        pe_trailing: 20.58
+        pe_forward: 21.10
+        earnings_growth: 0.445  # +44.5%
+        revenue_growth: 0.174   # +17.4%
+        roe: 0.28178  # 极高
+        质量评估: "优秀-2025Q1利润+62%ROE28.2%"
+      dimension2_industry:
+        industry: "黄金开采"
+        景气度: "景气期"
+        系数: 1.2
+        驱动因素: "金价突破3115美元/盎司+机构预测3000-3200+央行购金+地缘政治"
+      dimension3_catalyst:
+        系数: 1.2
+        催化因素: "卡莫阿铜矿二期投产+全球成本最低AISC<900美元+黄金储量3000吨"
+      valuation:
+        peg: 0.46  # 20.58/44.5
+        判断: "严重低估"
+        调整: 0.05
+      calculation: "30%×1.2×1.2+5% = 48%"
+      推荐级别: "推荐"
+
+  # 排名8: 中金黄金 - 期望收益42%
+  - name: "中金黄金"
+    sector: "GOLD"  # 黄金开采
+    expected_return: 0.42
+    risk:
+      mode: "SchemeC"
+      beta: 0.616
+      frag: 2.0
+    analysis:
+      dimension1_financials:
+        pe_trailing: 24.37
+        pe_forward: 23.08
+        earnings_growth: 0.766  # +76.6%
+        revenue_growth: 0.315   # +31.5%
+        roe: 0.16885
+        质量评估: "优秀-金价驱动业绩高增长"
+      dimension2_industry:
+        industry: "黄金开采"
+        景气度: "景气期"
+        系数: 1.2
+        驱动因素: "同紫金矿业-金价牛市"
+      dimension3_catalyst:
+        系数: 1.1
+        催化因素: "纱岭金矿达产年产10吨+中国黄金集团资产注入预期+技改降本8%"
+      valuation:
+        peg: 0.32  # 24.37/76.6
+        判断: "严重低估"
+        调整: 0.05
+      calculation: "28%×1.2×1.1+5% = 42%"
+      推荐级别: "推荐"
+
+  # 排名9: 中国巨石 - 期望收益30%
+  - name: "中国巨石"
+    sector: "CHEM"  # 玻璃纤维
+    expected_return: 0.30
+    risk:
+      mode: "SchemeC"
+      beta: 1.064
+      frag: 2.5
+    analysis:
+      dimension1_financials:
+        pe_trailing: 21.95
+        pe_forward: 23.75
+        earnings_growth: 0.565  # +56.5%
+        revenue_growth: 0.063   # +6.3%
+        roe: 0.10621
+        质量评估: "良好-周期底部复苏中"
+      dimension2_industry:
+        industry: "玻璃纤维"
+        景气度: "复苏期"
+        系数: 0.9
+        驱动因素: "价格上涨800元/吨+电子级玻纤布AI服务器需求强+风电叶片稳定"
+      dimension3_catalyst:
+        系数: 1.1
+        催化因素: "全球份额23%第一+智能制造降本单位成本最低+埃及美国产能释放"
+      valuation:
+        peg: 0.39  # 21.95/56.5
+        判断: "严重低估"
+        调整: 0.05
+      calculation: "25%×0.9×1.1+5% = 30%"
+      推荐级别: "谨慎推荐(行业复苏早期)"
+
+  # 排名10: 雅克科技 - 期望收益27%
+  - name: "雅克科技"
+    sector: "SEMI"  # 半导体材料
+    expected_return: 0.27
+    risk:
+      mode: "SchemeC"
+      beta: 0.391
+      frag: 3.0
+    analysis:
+      dimension1_financials:
+        pe_trailing: 40.08
+        pe_forward: 25.61
+        earnings_growth: -0.041  # Yahoo数据异常
+        revenue_growth: 0.328    # +32.8% (实际2025H1 +31.8%)
+        roe: 0.0945
+        质量评估: "良好-但Yahoo盈利增速数据异常"
+      dimension2_industry:
+        industry: "半导体材料-前驱体特气"
+        景气度: "复苏期"
+        系数: 0.8
+        驱动因素: "存储芯片周期底部+2025年电子气体市场67.2亿美元+国产替代15%→30%"
+      dimension3_catalyst:
+        系数: 1.2
+        催化因素: "长江存储核心供应商+前驱体特气光刻胶辅材全覆盖+EUV光刻胶国产化"
+      valuation:
+        peg: null  # 数据异常无法计算
+        判断: "合理偏高(基于实际业绩)"
+        调整: -0.02
+      calculation: "30%×0.8×1.2-2% = 27%"
+      推荐级别: "谨慎推荐(存储周期底部+数据质量存疑)"
+
+  # 排名11: 中天科技 - 期望收益26%
+  - name: "中天科技"
+    sector: "TMT"  # 海缆+光纤,归入TMT
+    expected_return: 0.26
+    risk:
+      mode: "SchemeC"
+      beta: 0.301  # Yahoo数据为-0.301,取绝对值
+      frag: 2.5
+    analysis:
+      dimension1_financials:
+        pe_trailing: 22.0
+        pe_forward: 15.26
+        earnings_growth: 0.139  # +13.9%
+        revenue_growth: 0.051   # +5.1%
+        roe: 0.08297
+        质量评估: "良好-2025H1营收+10.2%利润+10.6%"
+      dimension2_industry:
+        industry: "海缆+光纤光缆"
+        景气度: "景气期"
+        系数: 1.2
+        驱动因素: "海上风电市场385亿元+深远海风电+跨海互联项目"
+      dimension3_catalyst:
+        系数: 1.2
+        催化因素: "在手订单306亿(海缆133亿)+深海动态缆全球唯一+中标南方电网500kV项目"
+      valuation:
+        peg: 1.58  # 22.0/13.9
+        判断: "合理偏高"
+        调整: -0.03
+      calculation: "20%×1.2×1.2-3% = 26%"
+      推荐级别: "谨慎推荐"
+
+  # 排名12: 联想集团 - 期望收益22%
+  - name: "联想集团"
+    sector: "TMT"  # AI PC
+    expected_return: 0.22
+    risk:
+      mode: "SchemeC"
+      beta: 1.0  # 估计值
+      frag: 2.0
+    analysis:
+      dimension1_financials:
+        pe_trailing: null  # Yahoo未提供港股数据
+        earnings_growth: null
+        revenue_growth: null
+        质量评估: "中等-PC业务企稳AI PC占比提升"
+      dimension2_industry:
+        industry: "AI PC"
+        景气度: "复苏期"
+        系数: 1.0
+        驱动因素: "Windows AI PC渗透率30%+商用PC换机周期+Win10停服"
+      dimension3_catalyst:
+        系数: 1.1
+        催化因素: "全球Windows AI PC份额第一+ThinkPad YOGA全系列+PC服务器软件三驾马车"
+      valuation:
+        peg: null
+        判断: "低估(港股科技股低位)"
+        调整: 0.02
+      calculation: "18%×1.0×1.1+2% = 22%"
+      推荐级别: "中性"
+
+  # 排名13: 特变电工 - 期望收益19%
+  - name: "特变电工"
+    sector: "SEMI"  # 变压器+多晶硅,归入SEMI
+    expected_return: 0.19
+    risk:
+      mode: "SchemeC"
+      beta: 0.672
+      frag: 3.0
+    analysis:
+      dimension1_financials:
+        pe_trailing: 21.45
+        pe_forward: 12.71
+        earnings_growth: 0.525  # +52.5%
+        revenue_growth: 0.030   # +3.0%
+        roe: 0.040009998  # 极低
+        质量评估: "中等-多晶硅拖累ROE"
+      dimension2_industry:
+        industry: "变压器+多晶硅"
+        景气度: "分化(变压器景气+多晶硅衰退)"
+        系数: 0.8
+        驱动因素: "电网投资8250亿+AI数据中心 vs 多晶硅价格跌70%"
+      dimension3_catalyst:
+        系数: 0.9
+        催化因素: "国网南网特高压订单+一带一路电网项目-多晶硅价格暴跌拖累"
+      valuation:
+        peg: 0.41  # 21.45/52.5
+        判断: "严重低估"
+        调整: 0.05
+      calculation: "20%×0.8×0.9+5% = 19%"
+      推荐级别: "中性"
+
+  # 排名14: 江西铜业 - 期望收益11%
+  - name: "江西铜业"
+    sector: "METAL"  # 铜矿+冶炼
+    expected_return: 0.11
+    risk:
+      mode: "SchemeC"
+      beta: 1.393
+      frag: 2.5
+    analysis:
+      dimension1_financials:
+        pe_trailing: 16.35
+        pe_forward: 17.23
+        earnings_growth: 0.171  # +17.1%
+        revenue_growth: -0.017  # -1.7%
+        roe: 0.089820005
+        质量评估: "中等-冶炼加工费压力"
+      dimension2_industry:
+        industry: "铜矿开采+冶炼"
+        景气度: "底部徘徊"
+        系数: 0.7
+        驱动因素: "铜价+12.3% vs 长单TC/RC仅21美元低于盈亏线35-40美元"
+      dimension3_catalyst:
+        系数: 1.0
+        催化因素: "产能237万吨+3.4%+长单覆盖率80%+矿山冶炼一体化"
+      valuation:
+        peg: 0.96  # 16.35/17.1
+        判断: "合理"
+        调整: 0.00
+      calculation: "15%×0.7×1.0+0% = 11%"
+      推荐级别: "中性"
+
+metadata:
+  version: "V6_Comprehensive"
+  framework: "三维深度分析框架"
+  data_source: "Yahoo Finance API"
+  analysis_date: "2025-10-06"
+  total_companies: 14
+  ranking_by: "Expected Return (期望收益率)"

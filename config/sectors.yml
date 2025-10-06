@@ -33,3 +33,23 @@ sectors:
   GOLD:
     tickers: ["518850.SS"]  # 黄金ETF
     weights: [1.0]
+
+  # TMT (科技媒体通信)
+  TMT:
+    tickers: ["515000.SS"]  # 科技ETF
+    weights: [1.0]
+
+  # 化工
+  CHEM:
+    tickers: ["159870.SZ"]  # 化工ETF
+    weights: [1.0]
+
+  # 公用事业
+  UTIL:
+    tickers: ["510260.SS"]  # 公用事业ETF
+    weights: [1.0]
+
+  # 有色金属(铜)
+  METAL:
+    tickers: ["512400.SS"]  # 有色金属ETF
+    weights: [1.0]

@@ -1,0 +1,187 @@
+valuation_data:
+- name: ASMPT
+  ticker: 0522.HK
+  market: 港股
+  valuation:
+    pe_trailing: 142.2034
+    pe_forward: 20.413626
+    pb: 2.1416721
+    ps_trailing: 2.632081
+    peg_ratio: null
+  fundamentals:
+    roe: 0.01533
+    beta: 1.037
+    earnings_growth: -0.061
+    revenue_growth: 0.018
+- name: 建滔积层板
+  ticker: 1888.HK
+  market: 港股
+  valuation:
+    pe_trailing: 25.367348
+    pe_forward: 14.79762
+    pb: 2.5955315
+    ps_trailing: 1.9897373
+    peg_ratio: null
+  fundamentals:
+    roe: 0.10152
+    beta: 0.565
+    earnings_growth: 0.283
+    revenue_growth: 0.11
+- name: 紫金矿业
+  ticker: 2899.HK
+  market: 港股
+  valuation:
+    pe_trailing: 20.580248
+    pe_forward: 21.101265
+    pb: 6.235272
+    ps_trailing: 2.6867766
+    peg_ratio: null
+  fundamentals:
+    roe: 0.28178
+    beta: 1.457
+    earnings_growth: 0.445
+    revenue_growth: 0.174
+- name: 澜起科技
+  ticker: 688008.SS
+  market: A股
+  valuation:
+    pe_trailing: 88.457146
+    pe_forward: 83.22581
+    pb: 14.499813
+    ps_trailing: 38.475025
+    peg_ratio: null
+  fundamentals:
+    roe: 0.16733
+    beta: 0.866
+    earnings_growth: 0.765
+    revenue_growth: 0.521
+- name: 中金黄金
+  ticker: 600489.SS
+  market: A股
+  valuation:
+    pe_trailing: 24.366667
+    pe_forward: 23.084211
+    pb: 3.7589989
+    ps_trailing: 1.4745429
+    peg_ratio: null
+  fundamentals:
+    roe: 0.16885
+    beta: 0.616
+    earnings_growth: 0.766
+    revenue_growth: 0.315
+- name: 中天科技
+  ticker: 600522.SS
+  market: A股
+  valuation:
+    pe_trailing: 22.0
+    pe_forward: 15.258064
+    pb: 1.804999
+    ps_trailing: 1.2853602
+    peg_ratio: null
+  fundamentals:
+    roe: 0.08297
+    beta: -0.301
+    earnings_growth: 0.139
+    revenue_growth: 0.051
+- name: 中国巨石
+  ticker: 600176.SS
+  market: A股
+  valuation:
+    pe_trailing: 21.949368
+    pe_forward: 23.753424
+    pb: 2.25605
+    ps_trailing: 4.029655
+    peg_ratio: null
+  fundamentals:
+    roe: 0.10621
+    beta: 1.064
+    earnings_growth: 0.565
+    revenue_growth: 0.063
+- name: 江西铜业
+  ticker: 600362.SS
+  market: A股
+  valuation:
+    pe_trailing: 16.35484
+    pe_forward: 17.228157
+    pb: 1.534371
+    ps_trailing: 0.2271677
+    peg_ratio: null
+  fundamentals:
+    roe: 0.089820005
+    beta: 1.393
+    earnings_growth: 0.171
+    revenue_growth: -0.017
+- name: 雅克科技
+  ticker: 002409.SZ
+  market: A股
+  valuation:
+    pe_trailing: 40.08152
+    pe_forward: 25.607637
+    pb: 4.49558
+    ps_trailing: 4.4437246
+    peg_ratio: null
+  fundamentals:
+    roe: 0.0945
+    beta: 0.391
+    earnings_growth: -0.041
+    revenue_growth: 0.328
+- name: 生益科技
+  ticker: 600183.SS
+  market: A股
+  valuation:
+    pe_trailing: 58.08602
+    pe_forward: 54.565655
+    pb: 8.6432
+    ps_trailing: 5.598804
+    peg_ratio: null
+  fundamentals:
+    roe: 0.15389
+    beta: 0.752
+    earnings_growth: 0.589
+    revenue_growth: 0.358
+- name: 光迅科技
+  ticker: 002281.SZ
+  market: A股
+  valuation:
+    pe_trailing: 63.428574
+    pe_forward: 54.14634
+    pb: 5.759751
+    ps_trailing: 5.16432
+    peg_ratio: null
+  fundamentals:
+    roe: 0.09037
+    beta: 0.338
+    earnings_growth: 0.773
+    revenue_growth: 0.661
+- name: 特变电工
+  ticker: 600089.SS
+  market: A股
+  valuation:
+    pe_trailing: 21.445782
+    pe_forward: 12.714286
+    pb: 1.3480762
+    ps_trailing: 0.91481346
+    peg_ratio: null
+  fundamentals:
+    roe: 0.040009998
+    beta: 0.672
+    earnings_growth: 0.525
+    revenue_growth: 0.03
+- name: 川恒股份
+  ticker: 002895.SZ
+  market: A股
+  valuation:
+    pe_trailing: 14.413794
+    pe_forward: 12.5579405
+    pb: 2.3428617
+    ps_trailing: 2.6217217
+    peg_ratio: null
+  fundamentals:
+    roe: 0.16917999
+    beta: 0.53
+    earnings_growth: 0.565
+    revenue_growth: 0.296
+metadata:
+  fetch_time: '2025-10-06 00:31:35'
+  data_source: Yahoo Finance API (yfinance)
+  total_companies: 14

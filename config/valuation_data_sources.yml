@@ -1,0 +1,346 @@
+# 估值数据源配置文件
+# 所有数据来源于公开市场数据，采集时间: 2025年7月-10月
+
+companies_valuation:
+  # ===== 港股标的 =====
+
+  - name: "紫金矿业"
+    stock_code: "02899.HK"
+    market: "港股"
+    pe_ttm: 14.51  # 数据来源: 证券时报网, 2025年4月
+    pe_note: "A股PE 14.51x, 接近近3年均值15.85x, 较历史最低9x溢价60%"
+    pb: 3.17  # 数据来源: 理杏仁
+    pb_alt: 3.65  # 备选数据源
+    pe_historical_percentile: null  # 约60%分位(基于9x最低值到15.85x均值)
+    valuation_assessment: "合理" # 修正: 并非严重低估
+    data_sources:
+      - "证券时报网 2025-04-01"
+      - "理杏仁 lixinger.com"
+    notes: "较历史低点有明显溢价,估值处于近3年均值附近"
+
+  - name: "联想集团"
+    stock_code: "00992.HK"
+    market: "港股"
+    pe_ttm: 8.83  # 数据来源: GuruFocus
+    pe_alt: 12.5  # 备选数据源
+    pe_forward: 11.61  # 预测PE
+    pb: 2.66  # 实时数据
+    pb_alt: 3.08  # 过去一季度
+    analyst_target_pe: 9.0  # 中信证券预测2024财年PE
+    valuation_assessment: "低估"
+    data_sources:
+      - "GuruFocus gurufocus.cn"
+      - "理杏仁 lixinger.com"
+      - "中信证券研报 2025"
+    notes: "PE 8.83x显著低于行业平均,中信证券目标价11港元"
+
+  - name: "ASMPT"
+    stock_code: "00522.HK"
+    market: "港股"
+    pe_ttm: null  # 需进一步查询
+    target_price: 75.0  # 麦格理目标价 HK$75
+    target_price_morgan: 130.0  # 摩根士丹利目标价 HK$130 (2024-07)
+    current_price_reference: 76.6  # 2025年2月涨至76.6港元
+    valuation_assessment: "需进一步核实"
+    data_sources:
+      - "麦格理研报 2025-07"
+      - "摩根士丹利研报 2024-07"
+    notes: "分析师目标价差异较大(75-130港元),需实时PE数据"
+
+  - name: "建滔积层板"
+    stock_code: "01888.HK"
+    market: "港股"
+    pe_static: 30.75  # 静态PE
+    pe_2025e: 10.7  # 2025年预测PE
+    pe_2026e: 6.0   # 2026年预测PE
+    pe_2027e: 5.8   # 2027年预测PE
+    pb_target: 3.0  # 给予3.0倍PB估值
+    target_price: 14.78  # 目标价 HK$14.78
+    valuation_assessment: "合理"
+    data_sources:
+      - "国金证券研报 2025"
+      - "富途牛牛分析"
+    notes: "当前静态PE 30.75x,但2025E PE降至10.7x,业绩快速增长中"
+
+  - name: "中金黄金"
+    stock_code: "600489.SH"
+    market: "A股"
+    pe_ttm: 18.6  # 2025年4月29日
+    pb: 2.38
+    ps_ttm: 1.01
+    ps_comparison: "远低于赤峰黄金5.57x、紫金矿业2.44x"
+    valuation_assessment: "低估"
+    data_sources:
+      - "理杏仁 lixinger.com"
+    notes: "PE 18.6x, PS 1.47x远低于同业,存在估值修复空间"
+
+  # ===== A股标的 =====
+
+  - name: "澜起科技"
+    stock_code: "688008.SH"
+    market: "A股"
+    pe_ttm: 56.51  # 2025年7月25日
+    pe_historical_percentile: 15.38  # 近5年历史百分位
+    pe_2024e: 55.5  # 预测1
+    pe_2025e: 39.3  # 预测1
+    pe_2026e: 31.6  # 预测1
+    pe_2024e_alt: 40.1  # 预测2
+    pe_2025e_alt: 27.7  # 预测2
+    pe_2026e_alt: 22.7  # 预测2
+    valuation_assessment: "低估"
+    data_sources:
+      - "知了财报网 zhiliaocaibao.com"
+      - "券商研报综合 2024-09至2024-11"
+    notes: "PE历史百分位仅15.38%,处于5年历史低估值区间"
+
+  - name: "光迅科技"
+    stock_code: "002281.SZ"
+    market: "A股"
+    pe_ttm: 64.55
+    pe_historical_percentile: 90.73  # 近5年历史百分位
+    valuation_assessment: "严重高估"
+    data_sources:
+      - "英为财情 investing.com"
+    notes: "PE历史百分位90.73%,接近历史最高估值"
+
+  - name: "生益科技"
+    stock_code: "600183.SH"
+    market: "A股"
+    pe_2025e: 18.9  # 招商证券预测
+    pe_2025e_alt: 23.40  # 同花顺预测
+    pb_2025e: 2.9  # 招商证券预测
+    current_pe_estimate: 19.34  # 基于当前股价估算
+    valuation_assessment: "合理偏低"
+    data_sources:
+      - "招商证券研报 2025"
+      - "同花顺 10jqka.com.cn"
+    notes: "2025E PE 18.9-23.4x,低于CCL行业均值25x"
+
+  - name: "雅克科技"
+    stock_code: "002409.SZ"
+    market: "A股"
+    pe_ttm: 28.12  # TTM
+    pe_alt: 31.21  # 英为财情数据
+    pb: 3.36  # LF
+    pb_alt: 3.6  # 英为财情数据
+    profit_growth: 50.41  # 2024年利润增速
+    peg: 0.56  # 28.12 / 50.41
+    valuation_assessment: "合理"
+    data_sources:
+      - "新浪财经 2025-05"
+      - "英为财情 investing.com"
+      - "理杏仁 lixinger.com"
+    notes: "PE 28x与+50%增速匹配,PEG 0.56合理"
+
+  - name: "中国巨石"
+    stock_code: "600176.SH"
+    market: "A股"
+    pb_2024e: 1.6
+    pb_2025e: 1.5
+    pb_2026e: 1.5
+    pb_industry_avg: 1.3  # 可比公司均值
+    valuation_assessment: "合理偏高"
+    data_sources:
+      - "小牛行研 hangyan.co 2025-03"
+    notes: "PB 1.5x略高于行业均值1.3x"
+
+  - name: "江西铜业"
+    stock_code: "600362.SH"
+    market: "A股"
+    pb_note: "接近2008金融危机低位"
+    valuation_assessment: "低估"
+    data_sources:
+      - "市场分析"
+    notes: "PB接近历史低位,但需进一步获取具体数值"
+
+  - name: "特变电工"
+    stock_code: "600089.SH"
+    market: "A股"
+    pe_ttm: 13.33
+    pb: 1.28
+    pe_industry_comparison:
+      上能电气: 44.45
+      阳光电源: 22.74
+    pb_industry_comparison:
+      上能电气: 7.85
+      阳光电源: 8.27
+    valuation_assessment: "严重低估"
+    data_sources:
+      - "东方财富网 2025-06-05"
+      - "财富号分析 2025-09"
+    notes: "PE 13.33x远低于光伏板块(44.45x/22.74x), PB 1.28x远低于同业(7.85x/8.27x)"
+
+  - name: "川恒股份"
+    stock_code: "002895.SZ"
+    market: "A股"
+    pe_2025e: 9.88
+    valuation_assessment: "低估"
+    data_sources:
+      - "市场预测"
+    notes: "PE 9.88x处于低位,磷矿资源价值未充分反映"
+
+  - name: "中天科技"
+    stock_code: "600522.SH"
+    market: "A股"
+    pe_ttm_adjusted: 16.97  # PE-TTM扣非
+    pe_historical_percentile: 42.23  # 历史分位
+    pe_percentile_50: 17.33  # 50%分位点
+    pe_average: 18.98  # 平均值
+    pe_continuing: 13.39  # 持续经营PE
+    dcf_fair_value: 1053.77  # DCF估值(亿元)
+    current_market_cap: 454.26  # 实际市值(亿元)
+    valuation_assessment: "合理"
+    data_sources:
+      - "理杏仁 lixinger.com"
+      - "知了财报网 2025-05-30"
+    notes: "PE处于历史42.23%分位,中等偏下水平"
+
+# ===== 估值数据采集规范 =====
+data_collection_standards:
+  primary_sources:
+    - name: "理杏仁"
+      url: "https://www.lixinger.com"
+      reliability: "高"
+      update_frequency: "每日"
+      coverage: "A股+港股"
+
+    - name: "东方财富网"
+      url: "https://data.eastmoney.com"
+      reliability: "高"
+      update_frequency: "实时"
+      coverage: "A股"
+
+    - name: "GuruFocus价值大师"
+      url: "https://www.gurufocus.cn"
+      reliability: "高"
+      update_frequency: "每日"
+      coverage: "全球股票"
+
+    - name: "券商研报"
+      reliability: "中-高"
+      note: "需注意发布时间和分析师假设"
+      sources:
+        - "招商证券"
+        - "中信证券"
+        - "国金证券"
+        - "麦格理"
+        - "摩根士丹利"
+
+  secondary_sources:
+    - name: "英为财情"
+      url: "https://cn.investing.com"
+      reliability: "中"
+
+    - name: "同花顺"
+      url: "https://basic.10jqka.com.cn"
+      reliability: "中"
+
+    - name: "新浪财经"
+      url: "https://finance.sina.com.cn"
+      reliability: "中"
+
+  data_verification_rules:
+    - rule: "多源验证"
+      description: "至少2个独立数据源验证PE/PB数据"
+
+    - rule: "时效性检查"
+      description: "数据采集时间<3个月"
+
+    - rule: "异常值检查"
+      description: "PE>100或<5需人工复核"
+
+    - rule: "市场区分"
+      description: "明确标注A股/港股/美股,同一公司不同市场估值可能差异"
+
+    - rule: "历史分位优先"
+      description: "优先使用历史百分位数据(更科学)"
+
+# ===== 估值调整逻辑 =====
+valuation_adjustment_framework:
+  严重低估:
+    criteria:
+      - "PE历史分位 <20%"
+      - "PE低于同业 >50%"
+      - "PB接近历史最低值"
+    adjustment: "+4%至+5%"
+    examples:
+      - "特变电工: PE 13.33x vs 同业44.45x/22.74x"
+      - "澜起科技: PE历史分位15.38%"
+
+  低估:
+    criteria:
+      - "PE历史分位 20%-40%"
+      - "PE低于同业 30%-50%"
+      - "PE低于行业均值 >20%"
+    adjustment: "+2%至+3%"
+    examples:
+      - "生益科技: PE 19.34x vs 行业均值25x"
+      - "中金黄金: PS 1.47x vs 同业5.57x/2.44x"
+
+  合理:
+    criteria:
+      - "PE历史分位 40%-60%"
+      - "PEG 0.5-1.5"
+      - "PE接近行业均值"
+    adjustment: "0%"
+    examples:
+      - "雅克科技: PE 28x, PEG 0.56"
+      - "中天科技: PE历史分位42.23%"
+      - "紫金矿业: PE 14.51x接近3年均值15.85x"
+
+  合理偏高:
+    criteria:
+      - "PE历史分位 60%-70%"
+      - "PB略高于行业均值 <20%"
+    adjustment: "-2%至-3%"
+    examples:
+      - "中国巨石: PB 1.5x vs 行业均值1.3x"
+
+  高估:
+    criteria:
+      - "PE历史分位 70%-85%"
+      - "近期暴涨 >150%"
+    adjustment: "-5%至-8%"
+    examples:
+      - "建滔积层板: 静态PE 30.75x, 近期暴涨>200%"
+
+  严重高估:
+    criteria:
+      - "PE历史分位 >85%"
+      - "PE >100且业绩增长<20%"
+    adjustment: "-10%至-15%"
+    examples:
+      - "光迅科技: PE历史分位90.73%"
+
+# ===== 数据更新计划 =====
+update_schedule:
+  daily_check:
+    - "理杏仁PE/PB实时数据"
+    - "东方财富网估值数据"
+
+  weekly_review:
+    - "历史百分位变化>5%触发警报"
+    - "股价涨跌幅>10%触发重估"
+
+  monthly_refresh:
+    - "券商研报更新"
+    - "分析师一致预期更新"
+
+  quarterly_validation:
+    - "财报发布后验证业绩预测"
+    - "调整期望收益率"
+
+# ===== 注意事项 =====
+important_notes:
+  - "紫金矿业有A股(601899.SH)和H股(02899.HK)两个市场,估值可能不同"
+  - "港股流动性较低,估值折价常见"
+  - "PE TTM vs PE Forward的区别: TTM基于过去12个月,Forward基于未来预测"
+  - "静态PE vs 动态PE: 静态基于年报,动态基于预测"
+  - "扣非PE vs 普通PE: 扣非剔除非经常性损益,更准确反映主营业务"
+  - "历史百分位>85%为高估,<20%为低估"
+
+# ===== 版本控制 =====
+version: "1.0"
+last_updated: "2025-10-06"
+data_coverage_period: "2025年7月-10月"
+next_review_date: "2025-11-06"
