@@ -1,0 +1,136 @@
+companies:
+  - name: "雅克科技"
+    sector: "SEMI"
+    expected_return: 0.28
+    risk:
+      mode: "SchemeC"
+      beta: 1.20
+      frag: 3.0
+
+  - name: "赛腾股份"
+    sector: "SEMI"
+    expected_return: 0.25
+    risk:
+      mode: "SchemeC"
+      beta: 1.15
+      frag: 2.5
+
+  - name: "生益科技"
+    sector: "SEMI"
+    expected_return: 0.28
+    risk:
+      mode: "SchemeC"
+      beta: 1.10
+      frag: 2.5
+
+  - name: "建滔积层板"
+    sector: "TMT"
+    expected_return: 0.30
+    risk:
+      mode: "SchemeC"
+      beta: 1.05
+      frag: 2.0
+
+  - name: "锦波生物"
+    sector: "MEDDEV"
+    expected_return: 0.35
+    risk:
+      mode: "SchemeC"
+      beta: 1.10
+      frag: 4.5
+
+  - name: "中宠股份"
+    sector: "CONSUMER"
+    expected_return: 0.15
+    risk:
+      mode: "SchemeC"
+      beta: 1.00
+      frag: 2.0
+
+  - name: "爱美客"
+    sector: "MEDDEV"
+    expected_return: 0.25
+    risk:
+      mode: "SchemeC"
+      beta: 1.05
+      frag: 3.5
+
+  - name: "澜起科技"
+    sector: "SEMI"
+    expected_return: 0.40
+    risk:
+      mode: "SchemeC"
+      beta: 1.15
+      frag: 2.5
+
+  - name: "长电科技"
+    sector: "SEMI"
+    expected_return: 0.20
+    risk:
+      mode: "SchemeC"
+      beta: 1.15
+      frag: 2.5
+
+  - name: "中天科技"
+    sector: "TMT"
+    expected_return: 0.18
+    risk:
+      mode: "SchemeC"
+      beta: 1.05
+      frag: 2.5
+
+  - name: "中金黄金"
+    sector: "GOLD"
+    expected_return: 0.12
+    risk:
+      mode: "SchemeC"
+      beta: 0.90
+      frag: 1.5
+
+  - name: "中国巨石"
+    sector: "NONFER"
+    expected_return: 0.22
+    risk:
+      mode: "SchemeC"
+      beta: 1.20
+      frag: 3.0
+
+  - name: "舜宇光学"
+    sector: "TMT"
+    expected_return: 0.24
+    risk:
+      mode: "SchemeC"
+      beta: 1.10
+      frag: 2.5
+
+  - name: "申洲国际"
+    sector: "CONSUMER"
+    expected_return: 0.18
+    risk:
+      mode: "SchemeC"
+      beta: 1.00
+      frag: 2.5
+
+  - name: "联想集团"
+    sector: "CONSUMER"
+    expected_return: 0.22
+    risk:
+      mode: "SchemeC"
+      beta: 1.05
+      frag: 2.5
+
+  - name: "ASMPT"
+    sector: "SEMI"
+    expected_return: 0.30
+    risk:
+      mode: "SchemeC"
+      beta: 1.10
+      frag: 3.0
+
+  - name: "汇川技术"
+    sector: "TMT"
+    expected_return: 0.26
+    risk:
+      mode: "SchemeC"
+      beta: 1.10
+      frag: 2.8

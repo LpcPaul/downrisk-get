@@ -1,0 +1,479 @@
+metadata:
+  fetch_time: '2025-10-07 18:17:39'
+  data_source: Yahoo Finance API (yfinance)
+  companies: 17
+  period: 1y
+  trading_days_assumed: 252
+companies:
+- name: 雅克科技
+  ticker: 002409.SZ
+  market: A股
+  valuation:
+    current_price: 73.75
+    pe_trailing: 40.08152
+    pe_forward: 25.607637
+    pb: 4.49558
+    ps_trailing: 4.4437246
+    peg_ratio: null
+  fundamentals:
+    beta: 0.391
+    roe: 0.0945
+    profit_margin: 0.11076
+    operating_margin: 0.20023
+    earnings_growth: -0.041
+    revenue_growth: 0.328
+    dividend_yield: 0.79
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - &id001 !!python/object/apply:numpy.dtype
+      args:
+      - f8
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - <
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - !!binary |
+      ojJ8KT/a1j8=
+    sigma_down: 0.23520654970409435
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 赛腾股份
+  ticker: 603283.SS
+  market: A股
+  valuation:
+    current_price: 47.4
+    pe_trailing: 29.440994
+    pe_forward: 9.367589
+    pb: 4.1246085
+    ps_trailing: 3.4798503
+    peg_ratio: null
+  fundamentals:
+    beta: 0.161
+    roe: 0.19506
+    profit_margin: 0.13774
+    operating_margin: 0.101789996
+    earnings_growth: -0.122
+    revenue_growth: -0.25
+    dividend_yield: 0.84
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      XFGSU9cB4T8=
+    sigma_down: 0.3611742316697006
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 生益科技
+  ticker: 600183.SS
+  market: A股
+  valuation:
+    current_price: 54.02
+    pe_trailing: 58.08602
+    pe_forward: 54.565655
+    pb: 8.6432
+    ps_trailing: 5.598804
+    peg_ratio: null
+  fundamentals:
+    beta: 0.752
+    roe: 0.15389
+    profit_margin: 0.09526
+    operating_margin: 0.14628
+    earnings_growth: 0.589
+    revenue_growth: 0.358
+    dividend_yield: 1.85
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      f071PUc74j8=
+    sigma_down: 0.3582239272620625
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 建滔积层板
+  ticker: 1888.HK
+  market: 港股
+  valuation:
+    current_price: 11.99
+    pe_trailing: 24.469387
+    pe_forward: 14.273809
+    pb: 2.5036542
+    ps_trailing: 1.9193041
+    peg_ratio: null
+  fundamentals:
+    beta: 0.565
+    roe: 0.10152
+    profit_margin: 0.07858
+    operating_margin: 0.12005
+    earnings_growth: 0.283
+    revenue_growth: 0.11
+    dividend_yield: 2.5
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      OwghHuZB4j8=
+    sigma_down: 0.37628664763187447
+    trading_days: 247
+    start_date: '2024-10-07'
+    end_date: '2025-10-06'
+- name: 锦波生物
+  ticker: 300832.SZ
+  market: A股
+  valuation:
+    current_price: 68.3
+    pe_trailing: 31.62037
+    pe_forward: 21.821087
+    pb: 6.4567976
+    ps_trailing: 11.90088
+    peg_ratio: null
+  fundamentals:
+    beta: -0.418
+    roe: 0.21263
+    profit_margin: 0.3762
+    operating_margin: 0.31967
+    earnings_growth: -0.301
+    revenue_growth: -0.109
+    dividend_yield: 1.9
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      3008RClY2D8=
+    sigma_down: 0.2785636476987691
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 中宠股份
+  ticker: 002891.SZ
+  market: A股
+  valuation:
+    current_price: 53.21
+    pe_trailing: 35.47333
+    pe_forward: 40.93077
+    pb: 5.5214276
+    ps_trailing: 3.2781365
+    peg_ratio: null
+  fundamentals:
+    beta: 0.382
+    roe: 0.17549999
+    profit_margin: 0.09198
+    operating_margin: 0.08781999
+    earnings_growth: 0.3
+    revenue_growth: 0.234
+    dividend_yield: 0.66
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      xONjexJt3j8=
+    sigma_down: 0.2809343335705114
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 爱美客
+  ticker: 300896.SZ
+  market: A股
+  valuation:
+    current_price: 181.55
+    pe_trailing: 33.682747
+    pe_forward: 21.085947
+    pb: 7.339505
+    ps_trailing: 20.591007
+    peg_ratio: null
+  fundamentals:
+    beta: 1.244
+    roe: 0.21447
+    profit_margin: 0.60952
+    operating_margin: 0.57613
+    earnings_growth: -0.417
+    revenue_growth: -0.251
+    dividend_yield: 2.75
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      3cuhxsyX3j8=
+    sigma_down: 0.3182894039312891
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 澜起科技
+  ticker: 688008.SS
+  market: A股
+  valuation:
+    current_price: 154.8
+    pe_trailing: 88.457146
+    pe_forward: 83.22581
+    pb: 14.499813
+    ps_trailing: 38.475025
+    peg_ratio: null
+  fundamentals:
+    beta: 0.866
+    roe: 0.16733
+    profit_margin: 0.42924
+    operating_margin: 0.3721
+    earnings_growth: 0.765
+    revenue_growth: 0.521
+    dividend_yield: 0.25
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      yUX7EXCm4T8=
+    sigma_down: 0.326906693529558
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 长电科技
+  ticker: 600584.SS
+  market: A股
+  valuation:
+    current_price: 44.09
+    pe_trailing: 54.4321
+    pe_forward: 28.629871
+    pb: 2.8299103
+    ps_trailing: 2.0187962
+    peg_ratio: null
+  fundamentals:
+    beta: 0.666
+    roe: 0.051149998
+    profit_margin: 0.03739
+    operating_margin: 0.04482
+    earnings_growth: -0.424
+    revenue_growth: 0.072
+    dividend_yield: 0.34
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      J51beWKa2T8=
+    sigma_down: 0.25661553067725323
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 中天科技
+  ticker: 600522.SS
+  market: A股
+  valuation:
+    current_price: 18.92
+    pe_trailing: 22.0
+    pe_forward: 15.258064
+    pb: 1.804999
+    ps_trailing: 1.2853602
+    peg_ratio: null
+  fundamentals:
+    beta: -0.301
+    roe: 0.08297
+    profit_margin: 0.05863
+    operating_margin: 0.06059
+    earnings_growth: 0.139
+    revenue_growth: 0.051
+    dividend_yield: 1.59
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      Zi/i1sxS1T8=
+    sigma_down: 0.22293757212760265
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 中金黄金
+  ticker: 600489.SS
+  market: A股
+  valuation:
+    current_price: 21.93
+    pe_trailing: 24.366667
+    pe_forward: 23.084211
+    pb: 3.7589989
+    ps_trailing: 1.4745429
+    peg_ratio: null
+  fundamentals:
+    beta: 0.616
+    roe: 0.16885
+    profit_margin: 0.06018
+    operating_margin: 0.120740004
+    earnings_growth: 0.766
+    revenue_growth: 0.315
+    dividend_yield: 1.77
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      6fyroGJx1z8=
+    sigma_down: 0.22746033307332275
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 中国巨石
+  ticker: 600176.SS
+  market: A股
+  valuation:
+    current_price: 17.34
+    pe_trailing: 21.949368
+    pe_forward: 23.753424
+    pb: 2.25605
+    ps_trailing: 4.029655
+    peg_ratio: null
+  fundamentals:
+    beta: 1.064
+    roe: 0.10621
+    profit_margin: 0.18406
+    operating_margin: 0.25872
+    earnings_growth: 0.565
+    revenue_growth: 0.063
+    dividend_yield: 2.36
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      gy/l/Qt01T8=
+    sigma_down: 0.20645326389919877
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
+- name: 舜宇光学
+  ticker: 2382.HK
+  market: 港股
+  valuation:
+    current_price: 89.65
+    pe_trailing: 27.415903
+    pe_forward: 30.493196
+    pb: 3.7407162
+    ps_trailing: 2.4978065
+    peg_ratio: null
+  fundamentals:
+    beta: 1.042
+    roe: 0.13491
+    profit_margin: 0.08357
+    operating_margin: 0.075229995
+    earnings_growth: 0.525
+    revenue_growth: 0.042
+    dividend_yield: 0.59
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      IjY1zbY64j8=
+    sigma_down: 0.39112639482148936
+    trading_days: 247
+    start_date: '2024-10-07'
+    end_date: '2025-10-06'
+- name: 申洲国际
+  ticker: 2313.HK
+  market: 港股
+  valuation:
+    current_price: 65.3
+    pe_trailing: 13.86412
+    pe_forward: 13.491735
+    pb: 2.6558752
+    ps_trailing: 3.2022738
+    peg_ratio: null
+  fundamentals:
+    beta: 0.901
+    roe: 0.1825
+    profit_margin: 0.2116
+    operating_margin: 0.19159001
+    earnings_growth: 0.084
+    revenue_growth: 0.153
+    dividend_yield: 4.23
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      CgD8zvkB2z8=
+    sigma_down: 0.29883144995726263
+    trading_days: 247
+    start_date: '2024-10-07'
+    end_date: '2025-10-06'
+- name: 联想集团
+  ticker: 0992.HK
+  market: 港股
+  valuation:
+    current_price: 11.51
+    pe_trailing: 13.867471
+    pe_forward: 10.559633
+    pb: 25.86517
+    ps_trailing: 1.9704347
+    peg_ratio: null
+  fundamentals:
+    beta: 0.933
+    roe: null
+    profit_margin: 0.022720002
+    operating_margin: 0.041690003
+    earnings_growth: 0.904
+    revenue_growth: 0.219
+    dividend_yield: 3.39
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      klof67ZM4D8=
+    sigma_down: 0.37247274356023874
+    trading_days: 247
+    start_date: '2024-10-07'
+    end_date: '2025-10-06'
+- name: ASMPT
+  ticker: 0522.HK
+  market: 港股
+  valuation:
+    current_price: 89.3
+    pe_trailing: 151.35594
+    pe_forward: 21.727493
+    pb: 2.279515
+    ps_trailing: 2.801488
+    peg_ratio: null
+  fundamentals:
+    beta: 1.037
+    roe: 0.01533
+    profit_margin: 0.01847
+    operating_margin: 0.049790002
+    earnings_growth: -0.061
+    revenue_growth: 0.018
+    dividend_yield: 0.37
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      PCTNjdfB3T8=
+    sigma_down: 0.3514612751480993
+    trading_days: 247
+    start_date: '2024-10-07'
+    end_date: '2025-10-06'
+- name: 汇川技术
+  ticker: 300124.SZ
+  market: A股
+  valuation:
+    current_price: 83.82
+    pe_trailing: 43.88482
+    pe_forward: 38.1
+    pb: 7.4779196
+    ps_trailing: 5.470271
+    peg_ratio: null
+  fundamentals:
+    beta: 0.827
+    roe: 0.18351
+    profit_margin: 0.12415
+    operating_margin: 0.128
+    earnings_growth: 0.241
+    revenue_growth: 0.19
+    dividend_yield: 0.49
+  volatility:
+    sigma_total: !!python/object/apply:numpy._core.multiarray.scalar
+    - *id001
+    - !!binary |
+      tJUJLLme3T8=
+    sigma_down: 0.2853674755559038
+    trading_days: 245
+    start_date: '2024-09-30'
+    end_date: '2025-09-30'
